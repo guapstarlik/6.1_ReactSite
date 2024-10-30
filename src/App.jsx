@@ -31,7 +31,7 @@ function RotatingBox() {
 }
 
 function Saucer() {
-  const gltf = useLoader(GLTFLoader, '/Models/ufo.glb')
+  const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}/Models/ufo.glb`)
   const ufoRef = useRef(null)
   const [elapsedTime, setElapsedTime] = useState(0)
 
