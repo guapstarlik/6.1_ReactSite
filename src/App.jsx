@@ -1,8 +1,28 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber"
-import { Environment, OrbitControls, useGLTF, useTexture } from '@react-three/drei'
+import { Environment, OrbitControls, useGLTF, useTexture, Text } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useRef, useState } from 'react'
+
+ 
 import './App.css'
+
+function FloatingText() {
+  return (
+    <Text
+      position={[0, -5, -5]}
+      scale={[5, 5, 5]}
+      rotation={[0, 0, 45]}
+      color="white" 
+      strokeColor="black"
+      fontSize={1} // Size of the text
+      maxWidth={10} // Maximum width before breaking to new line
+      lineHeight={1} // Line height
+      textAlign="center" // Text alignment
+    >
+      COME UP!!!
+    </Text>
+  )
+}
 
 function RotatingBox() {
   const meshRef = useRef(null)
@@ -16,6 +36,7 @@ function RotatingBox() {
   })
 
   return (
+    
     <mesh
       ref={meshRef}
       rotation={[0.5, 0.5, 0]}
@@ -27,6 +48,7 @@ function RotatingBox() {
       <boxGeometry />
       <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
     </mesh>
+    
   )
 }
 
@@ -78,6 +100,7 @@ function App() {
 
         <Saucer />
         <RotatingBox />
+        <FloatingText />
         <OrbitControls />
       </Canvas>
     </div>
